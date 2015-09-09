@@ -109,6 +109,8 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    shoulda-matchers (2.8.0)
+      activesupport (>= 3.0.0)
     slop (3.6.0)
     sprockets (3.3.4)
       rack (~> 1.0)
@@ -144,6 +146,7 @@ DEPENDENCIES
   rspec-rails
   sass-rails
   sdoc
+  shoulda-matchers
   sqlite3
   turbolinks
   uglifier

@@ -3,6 +3,8 @@ require 'rails_helper'
 RSpec.describe Todo, type: :model do
   subject { Todo.new(title: 'stuff to do') }
 
+  it { should have_many :subtasks }
+
   describe 'title=' do
     it 'strips whitespace' do
       expect do
