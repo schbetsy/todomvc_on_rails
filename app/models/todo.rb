@@ -1,8 +1,7 @@
 class Todo < ActiveRecord::Base
-  has_many :subtasks
+  include Completable
 
-  scope :completed, -> { where("completed = ?", true) }
-  scope :active, -> { where("completed = ?", false) }
+  has_many :subtasks
 
   def title=(title)
     write_attribute(:title, title.strip)
