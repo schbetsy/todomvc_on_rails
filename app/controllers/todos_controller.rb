@@ -46,6 +46,7 @@ class TodosController < ApplicationController
   def toggle
     @todo = Todo.find(params[:id])
     @todo.toggle!(:completed)
+    redirect_to todos_path
   end
 
   def toggle_all

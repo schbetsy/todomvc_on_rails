@@ -3,7 +3,7 @@
     <% if todo.subtasks.any? %>
       <%= check_box_tag :completed, '', todo.completed?, class: "toggle" %>
     <% else %>
-      <%= form_for(todo, url: toggle_todo_path(todo), method: :post, remote: true) do |f| %>
+      <%= form_for(todo, url: toggle_todo_path(todo), method: :post) do |f| %>
         <%= f.check_box :completed, class: "toggle", "data-behavior" => "submit_on_check" %>
       <% end %>
     <% end %>
