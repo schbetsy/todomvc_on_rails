@@ -5,6 +5,10 @@ class SubtasksController < ApplicationController
     @subtask.toggle!(:completed)
   end
 
+  def destroy
+    @subtask.destroy
+  end
+
   private
 
   def set_subtask
