@@ -12,3 +12,9 @@
     <%= f.text_field :title, class: "edit", "data-behavior" => "todo_title_input", "data-original-value" => todo.title %>
   <% end %>
 </li>
+
+<ul class="subtask-list">
+  <% todo.subtasks.each do |st| %>
+    <%= render partial: 'subtasks/show', locals: { subtask: st } %>
+  <% end %>
+</ul>
