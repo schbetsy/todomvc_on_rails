@@ -8,7 +8,7 @@
       <% end %>
     <% end %>
     <label data-behavior="todo_title"><%= todo.title %></label>
-    <%= button_to '+ Add Subtask', todo_subtasks_path(todo), method: :post, class: 'add-subtask' %>
+    <%= button_to('+ Add Subtask', todo_subtasks_path(todo), method: :post, class: 'add-subtask') unless todo.completed? %>
     <%= form_for(todo, method: :delete, remote: true) do |f| %>
       <button type="submit" class="destroy"></button>
     <% end %>
