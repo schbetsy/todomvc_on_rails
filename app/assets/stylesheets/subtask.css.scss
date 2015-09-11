@@ -11,12 +11,7 @@
   border-bottom: 1px dotted #ccc;
 }
 
-.subtask-list li:last-child {
-  border-bottom: none;
-}
-
 .subtask-list li.editing {
-  border-bottom: none;
   padding: 0;
 }
 
@@ -115,10 +110,6 @@
 
 .subtask-list li:hover .destroy {
   display: block;
-}
-
-.subtask-list li .edit {
-  display: none;
 }
 
 .subtask-list li.editing:last-child {

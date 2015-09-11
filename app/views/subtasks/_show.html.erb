@@ -1,11 +1,22 @@
-<li class="<%= "completed" if subtask.completed? %>" id="<%= dom_id(subtask) %>">
-  <div class="view">
-    <%= form_for(subtask, url: toggle_subtask_path(subtask), method: :post, remote: true) do |f| %>
-      <%= f.check_box :completed, class: "toggle", "data-behavior" => "submit_on_check" %>
+<% if subtask.title %>
+  <li class="<%= "completed" if subtask.completed? %>" id="<%= dom_id(subtask) %>">
+    <div class="view">
+      <%= form_for(subtask, url: toggle_subtask_path(subtask), method: :post, remote: true) do |f| %>
+        <%= f.check_box :completed, class: "toggle", "data-behavior" => "submit_on_check" %>
+      <% end %>
+      <label><%= subtask.title %></label>
+      <%= form_for(subtask, method: :delete, remote: true) do |f| %>
+        <button type="submit" class="destroy"></button>
+      <% end %>
+    </div>
+  </li>
+<% else %>
+  <li id="<%= dom_id(subtask) %>" class='subtask-edit'>
+    <%= form_for(subtask, url: subtask_path(subtask)) do |f| %>
+      <%= f.text_field :title, id: 'new-subtask' %>
     <% end %>
-    <label><%= subtask.title %></label>
     <%= form_for(subtask, method: :delete, remote: true) do |f| %>
       <button type="submit" class="destroy"></button>
     <% end %>
-  </div>
-</li>
+  </li>
+<% end %>

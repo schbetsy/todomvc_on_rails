@@ -4,6 +4,7 @@
       <%= f.check_box :completed, class: "toggle", "data-behavior" => "submit_on_check" %>
     <% end %>
     <label data-behavior="todo_title"><%= todo.title %></label>
+    <%= button_to '+ Add Subtask', todo_subtasks_path(todo), method: :post, class: 'add-subtask' %>
     <%= form_for(todo, method: :delete, remote: true) do |f| %>
       <button type="submit" class="destroy"></button>
     <% end %>

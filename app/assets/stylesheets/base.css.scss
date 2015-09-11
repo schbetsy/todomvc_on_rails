@@ -186,15 +186,6 @@ label[for='toggle-all'] {
   border-bottom: 1px dotted #ccc;
 }
 
-#todo-list li:last-child {
-  border-bottom: none;
-}
-
-#todo-list li.editing {
-  border-bottom: none;
-  padding: 0;
-}
-
 #todo-list li.editing .edit {
   display: block;
   width: 506px;

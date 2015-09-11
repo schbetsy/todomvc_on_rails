@@ -10,9 +10,11 @@ Todos::Application.routes.draw do
       get :completed
       delete :destroy_completed
     end
+
+    resources :subtasks, only: [:create]
   end
 
-  resources :subtasks, only: [:create, :destroy, :update] do
+  resources :subtasks, only: [:destroy, :update] do
     member do
       post :toggle
     end
