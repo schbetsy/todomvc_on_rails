@@ -1,7 +1,7 @@
 <% if subtask.title %>
   <li class="<%= "completed" if subtask.completed? %>" id="<%= dom_id(subtask) %>">
     <div class="view">
-      <%= form_for(subtask, url: toggle_subtask_path(subtask), method: :post, remote: true) do |f| %>
+      <%= form_for(subtask, url: toggle_subtask_path(subtask), method: :post) do |f| %>
         <%= f.check_box :completed, class: "toggle", "data-behavior" => "submit_on_check" %>
       <% end %>
       <label><%= subtask.title %></label>

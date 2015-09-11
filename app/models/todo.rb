@@ -3,6 +3,14 @@ class Todo < ActiveRecord::Base
 
   has_many :subtasks
 
+  def completed?
+    if subtasks.any?
+      subtasks.all? { |st| st.completed }
+    else
+      completed
+    end
+  end
+
   def title=(title)
     write_attribute(:title, title.strip)
   end

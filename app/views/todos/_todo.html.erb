@@ -1,7 +1,11 @@
 <li class="<%= "completed" if todo.completed? %>" id="<%= dom_id(todo) %>">
   <div class="view">
-    <%= form_for(todo, url: toggle_todo_path(todo), method: :post, remote: true) do |f| %>
-      <%= f.check_box :completed, class: "toggle", "data-behavior" => "submit_on_check" %>
+    <% if todo.subtasks.any? %>
+      <%= check_box_tag :completed, '', todo.completed?, class: "toggle" %>
+    <% else %>
+      <%= form_for(todo, url: toggle_todo_path(todo), method: :post, remote: true) do |f| %>
+        <%= f.check_box :completed, class: "toggle", "data-behavior" => "submit_on_check" %>
+      <% end %>
     <% end %>
     <label data-behavior="todo_title"><%= todo.title %></label>
     <%= button_to '+ Add Subtask', todo_subtasks_path(todo), method: :post, class: 'add-subtask' %>

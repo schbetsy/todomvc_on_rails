@@ -3,6 +3,7 @@ class SubtasksController < ApplicationController
 
   def toggle
     @subtask.toggle!(:completed)
+    redirect_to todos_path
   end
 
   def destroy
