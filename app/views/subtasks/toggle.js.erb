@@ -1,0 +1,4 @@
+$("#<%= dom_id(@subtask) %>")
+  .toggleClass("completed", <%= @subtask.completed? %>)
+  .find("input.toggle")
+  .prop("checked", <%= @subtask.completed? %>);

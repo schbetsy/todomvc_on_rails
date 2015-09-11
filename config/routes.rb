@@ -12,5 +12,11 @@ Todos::Application.routes.draw do
     end
   end
 
+  resources :subtasks, only: [:create, :destroy, :update] do
+    member do
+      post :toggle
+    end
+  end
+
   root to: "todos#index"
 end
