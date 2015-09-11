@@ -12,8 +12,9 @@
   </li>
 <% else %>
   <li id="<%= dom_id(subtask) %>" class='subtask-edit'>
+    <%= check_box_tag :completed, '', false, class: "toggle" %>
     <%= form_for(subtask, url: subtask_path(subtask)) do |f| %>
-      <%= f.text_field :title, id: 'new-subtask' %>
+      <%= f.text_field :title, class: 'new-subtask', placeholder: "Add a subtask of \"#{subtask.todo.title}\"" %>
     <% end %>
     <%= form_for(subtask, method: :delete, remote: true) do |f| %>
       <button type="submit" class="destroy"></button>
